@@ -1,0 +1,18 @@
+h2 {
+    color: red;
+}
+
+ul li{
+    color: aqua;
+    list-style: decimal;
+}
+
+ol li {
+    color: blue;
+    list-style: "♥";
+}
+
+table, td, th{
+    border: 1px solid red;
+    border-collapse: collapse;
+}
