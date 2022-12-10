@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <action="./index.html" method="get">
+        <label for="nome">Nome *</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="email">E-mail *</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="senha">Senha *</label>
+        <input type="password" name="senha" id="senha" required>
+
+        <label for="nascimento">Data de Nacimento*</label>
+        <input type="date" name="nascimento" required>
+
+        <label for="idade">Idade</label>
+        <input disabled type="number" name="idade" id="idade" min="0" max="40">
+    </action>
+    <div>
+        <input class="semquebra" type="checkbox" name="retirada" id="sim" value="sim">
+        <label for="retirada">Retirada</label>
+    </div>
+
+    </div>
+        <input class="semquebra" type="radio" value="sim" name="pergunta">
+        <label class="semquebra" for="">Sim</label>
+
+        <input class="semquebra" type="radio" value="não" name="pergunta">
+        <label class="semquebra" for="">Não</label>
+    </div>
+
+    <div>
+        <select name="nomes" id="nomes">
+            <option value=""disabled selected>Selecione uma opção</option>
+            <option value="ronier">Ronier</option>
+            <option value="christian">Christian</option>
+            <option value="leticia">Letícia</option>
+            <option value="heitor">Heitor</option>
+            <option value="vinicius">Vinícius</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+        <button type="reset">Limpar</button>
+        <button type="submit">Enviar</button>
+    </div>
+    
+    </form>
+</body>
+</html>

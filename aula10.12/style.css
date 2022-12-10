@@ -1,0 +1,12 @@
+label{
+    display: block;
+}
+
+input {
+    display: block;
+    margin: 16px 0px;
+}
+
+.semquebra {
+    display: inline;
+}
