@@ -1,0 +1,224 @@
+function dtoUser(user) {
+
+    return { nome: user.first_name, email: user.email }
+}
+
+async function buscarTodos() {
+
+    try {
+        const response = await fetch('https://reqres.in/api/users')
+
+        // const { data: users } = await response.json()
+
+        const pagina = await response.json()
+
+        console.log(pagina.data)
+
+
+    } catch (error) {
+        console.error(error.message)
+    }
+
+}
+
+buscarTodos()
+
+async function deleteById(id) {
+    fetch('https://reqres.in/api/users')
+}
+
+
+
+// Inciando a parte dos estados
+
+const urlEstados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+
+fetch(urlEstados)
+    .then((respostaEstados) => respostaEstados.json())
+    .then((listaEstados) => renderEstados(listaEstados))
+
+function renderEstados(estados) {
+
+    const select = document.getElementById("listaEstados")
+
+    estados.forEach(estado => {
+        const elemento = document.createElement("option");
+        elemento.innerText = estado.nome;
+        elemento.value = estado.sigla;
+
+
+        select.appendChild(elemento)
+    });
+}
+
+
+function render(cidades) {
+
+    const listaCidades = document.getElementById("listaCidades")
+
+    listaCidades.innerHTML = ''
+
+    cidades.forEach(cidade => {
+
+        const elemento = document.createElement("option")
+        elemento.innerText = cidade.nome
+        elemento.value = cidade.nome
+
+        listaCidades.appendChild(elemento)
+    });
+}
+
+const select = document.getElementById("listaEstados")
+
+select.addEventListener('change', (evento) => {
+
+    const url = https://servicodados.ibge.gov.br/api/v1/localidades/estados/${evento.target.value}/municipios
+
+
+    // Busca as cidades e coloca na lista select
+    fetch(url)
+        .then((resposta) => resposta.json())
+        .then((data) => render(data))
+
+})
+
+
+
+
+
+const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/CE/municipios"
+
+function render(cidades) {
+
+    const listaCidades = document.getElementById("listaCidades")
+
+    cidades.forEach(cidade => {
+
+       const elemento = document.createElement("option")
+       elemento.innerText = cidade.nome
+       elemento.value = cidade.nome
+
+       listaCidades.appendChild(elemento)
+    });
+}
+
+fetch(url)
+.then((resposta) => resposta.json())
+.then((data) => render(data))
+.catch((error) => console.log(error))
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="tempo">Estou requisitando uma api</h1>
+
+    <select name="cidade" id="listaCidades">
+        <option selected disabled value="">Selecione uma cidade</option>
+    </select>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/CE/municipios"
+
+function render(cidades) {
+
+    const listaCidades = document.getElementById("listaCidades")
+
+    cidades.forEach(cidade => {
+
+        const elemento = document.createElement("li")
+        elemento.innerText = cidade.nome
+
+        listaCidades.appendChild(elemento)
+    });
+}
+
+fetch(url)
+.then((resposta) => resposta.json())
+.then((data) => render(data))
+
+
+
+const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/CE/municipios"
+
+
+fetch(url)
+.then((resposta) => resposta.json())
+.then((data) => console.log(data))
+
+
+
+function apagar() {
+    const elementoH1 = document.getElementById("tempo")
+    elementoH1.remove()
+}
+
+
+
+let contador = 4
+function tom() {
+
+    const elementoH1 = document.getElementById("tempo")
+    elementoH1.innerText = Eu vou sumir depois de ${contador} segundos;
+
+    contador--;
+}
+
+const referencia = setInterval(tom, 1000)
+
+setTimeout(() => clearInterval(referencia), 5000)
+
+setTimeout(apagar, 6000)
+
+
+
+
+function apagar() {
+    const elementoH1 = document.getElementById("tempo")
+    elementoH1.remove()
+}
+
+// setTimeout(apagar, 5000)
+
+let contador = 5
+function tom() {
+
+    const elementoH1 = document.getElementById("tempo")
+    elementoH1.innerText = contador;
+
+    contador--;
+}
+
+const referencia = setInterval(tom, 1000)
+
+setTimeout(
+    () => clearInterval(referencia)
+    , 5000)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="tempo">Eu vou sumir depois de 5 segundos</h1>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
